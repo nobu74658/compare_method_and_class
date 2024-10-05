@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:method_and_class/class_screen.dart';
 import 'package:method_and_class/method_screen.dart';
+import 'package:method_and_class/riverpod/home_screen_riverpod.dart';
 
 final List<bool> isLikedList = List.generate(1000, (index) => false);
 
@@ -15,14 +16,14 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
+            const Spacer(),
             FilledButton(
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) {
-                      return MethodScreen();
+                      return const MethodScreen();
                     },
                   ),
                 );
@@ -35,12 +36,28 @@ class HomeScreen extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) {
-                      return ClassScreen();
+                      return const ClassScreen();
                     },
                   ),
                 );
               },
               child: const Text('クラス'),
+            ),
+            const Spacer(),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const HomeScreenRiverpod();
+                      },
+                    ),
+                  );
+                },
+                child: const Text('riverpod版へ'),
+              ),
             ),
           ],
         ),

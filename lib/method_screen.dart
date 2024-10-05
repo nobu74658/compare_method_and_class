@@ -26,7 +26,7 @@ class _MethodScreenState extends State<MethodScreen> {
   }
 
   Widget _buildItem({required int index}) {
-    print('Item $index build');
+    debugPrint('Item $index build');
     return InkWell(
       onTap: () {
         setState(() {
@@ -35,6 +35,7 @@ class _MethodScreenState extends State<MethodScreen> {
       },
       child: ListTile(
         title: Text('Item $index'),
+        subtitle: Text(DateTime.now().toString()),
         trailing: isLikedList[index]
             ? const Icon(Icons.favorite)
             : const Icon(Icons.favorite_border),

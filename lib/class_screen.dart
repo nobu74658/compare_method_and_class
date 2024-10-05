@@ -38,7 +38,7 @@ class _ListTile extends StatefulWidget {
 class _ListTileState extends State<_ListTile> {
   @override
   Widget build(BuildContext context) {
-    print('Item ${widget.index} build');
+    debugPrint('Item ${widget.index} build');
     return InkWell(
       onTap: () {
         setState(() {
@@ -47,6 +47,7 @@ class _ListTileState extends State<_ListTile> {
       },
       child: ListTile(
         title: Text('Item ${widget.index}'),
+        subtitle: Text(DateTime.now().toString()),
         trailing: isLikedList[widget.index]
             ? const Icon(Icons.favorite)
             : const Icon(Icons.favorite_border),
