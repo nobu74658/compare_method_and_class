@@ -13,7 +13,7 @@ class _NotComopnentizeScreenState extends State<NotComopnentizeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('メソッドで実装'),
+        title: const Text('コンポーネント化なし'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -90,24 +90,6 @@ class _NotComopnentizeScreenState extends State<NotComopnentizeScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildItem({required int index}) {
-    debugPrint('Item $index build');
-    return InkWell(
-      onTap: () {
-        setState(() {
-          isLikedList[index] = !isLikedList[index];
-        });
-      },
-      child: ListTile(
-        title: Text('Item $index'),
-        subtitle: Text(DateTime.now().toString()),
-        trailing: isLikedList[index]
-            ? const Icon(Icons.favorite)
-            : const Icon(Icons.favorite_border),
       ),
     );
   }
